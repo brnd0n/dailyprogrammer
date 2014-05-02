@@ -1,0 +1,29 @@
+#!/usr/bin/python
+
+import sys
+
+valid_inputs = ['a', 'b', 'c', 'A', 'B', 'C']
+
+def get_input():
+	inputs = dict()
+	input_lines = int(raw_input())
+	count = 0
+	while count < input_lines:
+		line = raw_input()
+		key = line[0]
+		value = line[2:]
+		inputs[key] = value
+		count += 1
+	return inputs
+
+
+
+# main
+
+# get input
+values = get_input()
+print values
+# calculate missing values
+
+
+# print output
