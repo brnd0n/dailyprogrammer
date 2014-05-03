@@ -1,8 +1,12 @@
 #!/usr/bin/python
 
 import sys
+from math import *
 
-valid_inputs = ['a', 'b', 'c', 'A', 'B', 'C']
+
+# ---------
+# functions
+# ---------
 
 def get_input():
 	inputs = dict()
@@ -11,19 +15,41 @@ def get_input():
 	while count < input_lines:
 		line = raw_input()
 		key = line[0]
-		value = line[2:]
+		value = int(line[2:])
 		inputs[key] = value
 		count += 1
+	inputs['C'] = radians(90)
 	return inputs
 
+def calc_triangle(triangle):
+	num_sides = 0
+	num_angles = 0
+	for key in triangle.iterkeys():
+		if key == 'a' or key == 'b' or key == 'c':
+			num_sides += 1
+		elif key == 'A' or key == 'B' or key == 'C':
+			num_angles += 1
+	
+	if num_sides == 1:
+		print 'hello'
+	elif num_sides == 2:
+		if not triangle.has_key('a'):
+			triangle['a'] = 0
+		elif not triangle.has_key('b'):
+			triangle['b'] = 0
+		elif not triangle.has_key('c'):
+			triangle['c'] = 0
+	
+	return triangle
+
+def print_outputs(outputs):
+	for key, value in outputs.items():
+		print str(key) + '=' + str(value)
 
 
+# ----
 # main
+# ----
 
-# get input
-values = get_input()
-print values
-# calculate missing values
-
-
-# print output
+outputs = calc_triangle(get_input())
+print_outputs(outputs)
