@@ -31,14 +31,18 @@ def calc_triangle(triangle):
 			num_angles += 1
 	
 	if num_sides == 1:
-		print 'hello'
+		
 	elif num_sides == 2:
 		if not triangle.has_key('a'):
-			triangle['a'] = 0
+			triangle['a'] = pow(triangle['c'], 2) - pow(triangle['b'], 2)
 		elif not triangle.has_key('b'):
-			triangle['b'] = 0
+			triangle['b'] = pow(triangle['c'], 2) - pow(triangle['a'], 2)
 		elif not triangle.has_key('c'):
-			triangle['c'] = 0
+			triangle['c'] = pow(triangle['a'], 2) + pow(triangle['b'], 2)
+		if not triangle.has_key('A'):
+			triangle['A'] = 
+		if not triangle.has_key('B'):
+			triangle['B'] = 90.0 - triangle['A']
 	
 	return triangle
 
